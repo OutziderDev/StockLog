@@ -1,3 +1,7 @@
+---
+import Sidebar from "../sections/Sidebar.astro";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,7 +12,10 @@
 		<title>StockLog</title>
 	</head>
 	<body>
-		<slot />
+    <main>
+      <Sidebar/>
+      <slot />
+    </main>
 	</body>
 </html>
 
@@ -21,7 +28,7 @@
   :root {
     --color-dark-light: #2f2f2f; 
     --color-morado-oscuro: #1c0e28;
-    --color-morado-medio: #261636;
+    --color-morado-claro: #261636;
     --color-morado-hover: #2b1d3f;
     --color-naranja-claro: #f49c49;/* FFA270; */
     --color-naranja-oscuro: #e48440; /* e48440 */
@@ -30,10 +37,16 @@
 
 	html,
 	body {
-		margin: 0;
 		width: 100%;
 		height: 100%;
     background-color: var(--color-morado-oscuro);
     color: var(--color-crema);
 	}
+
+  main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
 </style>
