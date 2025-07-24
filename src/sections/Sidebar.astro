@@ -1,5 +1,8 @@
 ---
-
+import BoxIcons from '../assets/icons/boxes.svg'
+import HouseIcon from '../assets/icons/house.svg'
+import ReporteIcon from '../assets/icons/report.svg'
+import FacturaIcon from '../assets/icons/factura.svg'
 ---
 <section>
   <div class="title">
@@ -9,10 +12,19 @@
     </button>
   </div>
   <ul>
-    <a href="/">Inicio </a>
-    <a href="/">Inventario</a>
-    <a href="/">Reportes</a>
-    <a href="/">Facturas</a>
+    <a href="/">
+      <HouseIcon/>
+      Inicio 
+    </a>
+    <a href="/">
+      <BoxIcons/>
+      Inventario</a>
+    <a href="/">
+      <ReporteIcon/>
+      Reportes</a>
+    <a href="/">
+      <FacturaIcon/>
+      Facturas</a>
     <a href="/">FAQ</a>
   </ul>
 </section>
@@ -26,10 +38,11 @@
     display: hidden;
 
     & > .title {
+      padding: 1rem;
       margin-top: 1rem;
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
       font-size: 1.5rem;
       user-select: none;
       
@@ -61,10 +74,13 @@
 
       & > a {
         text-decoration: none;
-        text-align: center;
         color: var(--color-crema);
         font-size: 1.5rem;
-        padding: 0.5rem;
+        padding: 0.5rem  1rem;
+
+        & > svg {
+          stroke: var(--color-naranja-oscuro);
+        }
         
         &:hover {
           background-color: var(--color-morado-hover);
