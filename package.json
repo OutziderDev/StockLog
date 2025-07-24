@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.11.0"
+    "astro": "^5.12.3"
   },
   "devDependencies": {
     "oxlint": "^1.6.0"
