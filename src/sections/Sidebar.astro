@@ -3,6 +3,8 @@ import BoxIcons from '../assets/icons/boxes.svg'
 import HouseIcon from '../assets/icons/house.svg'
 import ReporteIcon from '../assets/icons/report.svg'
 import FacturaIcon from '../assets/icons/factura.svg'
+import FAQIcon from '../assets/icons/faq.svg'
+import SettingIcon from '../assets/icons/settings.svg'
 ---
 <section>
   <div class="title">
@@ -18,32 +20,44 @@ import FacturaIcon from '../assets/icons/factura.svg'
     </a>
     <a href="/">
       <BoxIcons/>
-      Inventario</a>
+      Inventario
+    </a>
     <a href="/">
       <ReporteIcon/>
-      Reportes</a>
+      Reportes
+    </a>
     <a href="/">
       <FacturaIcon/>
-      Facturas</a>
-    <a href="/">FAQ</a>
+      Facturas
+    </a>
+    <a href="/">
+      <FAQIcon />
+      FAQ
+    </a>
   </ul>
+  <button class="btn-settings">
+    <SettingIcon />
+    Configuración
+  </button>
 </section>
 
 <style>
   section {
-    width: 20%;
+    width: 18% !important;
     padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
     background-color: var(--color-morado-oscuro);
-    animation: slide-fade-in 0.3s ease-in-out;
-    display: hidden;
+    animation: slide-fade-in 0.3s ease-in-out forwards;
+     
 
     & > .title {
-      padding: 1rem;
+      padding-inline: 1rem;
       margin-top: 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       user-select: none;
       
       & button {
@@ -67,7 +81,8 @@ import FacturaIcon from '../assets/icons/factura.svg'
     }
 
     & > ul {
-      margin-top: 4rem;
+      width: 100%;
+      margin-top: 1rem;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
@@ -77,14 +92,45 @@ import FacturaIcon from '../assets/icons/factura.svg'
         color: var(--color-crema);
         font-size: 1.5rem;
         padding: 0.5rem  1rem;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        
 
         & > svg {
           stroke: var(--color-naranja-oscuro);
+          stroke-width: 2px;
+          height: 1.6rem;
+          width: 1.6rem;
         }
         
         &:hover {
           background-color: var(--color-morado-hover);
         }
+      }
+    }
+
+    .btn-settings {
+      color: var(--color-crema);
+      background-color: var(--color-morado-oscuro);
+      width: 100%;
+      height: auto;
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem  1rem;
+      gap: 0.5rem;
+      border: none;
+      font-size: 1.2rem;
+
+      & > svg {
+        width: 1.6rem;
+        height: 1.6rem;
+        stroke: var(--color-naranja-oscuro);
+      }
+
+      &:hover {
+        background-color: var(--color-morado-hover);
       }
     }
   }
