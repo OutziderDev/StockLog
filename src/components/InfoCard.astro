@@ -1,0 +1,42 @@
+---
+  const titulo: string = Astro.props.titulo
+  const valor:number = Astro.props.dato || 0
+---
+<div class="content-card">
+  <div class="card-info">
+    <span>{valor}</span>
+    <p>{titulo}</p>
+  </div>
+</div>
+
+<style>
+  @property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .content-card {
+    width: 20%;
+    height: 20%;
+    background: linear-gradient( var(--gradient-angle),#fff1, var(--color-crema),#fff1);
+    padding: 0.5px;
+    border-radius: 1rem;
+    animation: rotate 10s linear infinite;
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: var(--color-morado-claro);
+    border-radius:1rem;
+  }
+
+  @keyframes rotate {
+    from { --gradient-angle: 0deg;}
+    to { --gradient-angle: 360deg;}
+  }
+
+</style>

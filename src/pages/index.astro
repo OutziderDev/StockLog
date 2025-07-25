@@ -1,16 +1,19 @@
 ---
- import Layout from '../layouts/Layout.astro';
+  import InfoCard from '../components/InfoCard.astro';
+  import Layout from '../layouts/Layout.astro';
 ---
 <Layout>
-  <section>
-    <h1>hola</h1>
+  <section class="container">
+    <section class="infocards">
+      <InfoCard titulo="Inventario" dato="1203"/>
+      <InfoCard titulo="Inventario" dato="1203"/>
+    </section>
   </section>
 </Layout>
 
 <style>
-  section{
+  .container{
     width: 100%;
     padding: 0.5rem;
-    background-color: var(--color-morado-claro);
   }
 </style>
