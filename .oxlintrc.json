@@ -1,5 +1,32 @@
 {
   "rules": {
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "space-before-blocks": "error",
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "no-console": "off",
+    "indent": ["error", 2, {
+      "SwitchCase": 1,
+      "ignoredNodes": ["ConditionalExpression"]
+    }],
+    "no-undef": "error",
+    "eqeqeq": "error",
+    "no-multi-spaces": "error",
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "no-debugger": "error",
+    "no-cond-assign": ["error", "always"],
+    "no-constant-condition": ["error", { "checkLoops": false }],
+    "no-dupe-keys": "error",
+    "no-empty-character-class": "error",
+    "no-empty": ["error", { "allowEmptyCatch": true }],
+    "no-const-assign": "error",
+    "no-use-before-define": ["error", { "functions": false, "classes": true }],
+    "no-trailing-spaces": "error",
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"]
   }
 }
