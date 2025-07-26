@@ -5,8 +5,10 @@
 <Layout>
   <section class="container">
     <section class="infocards">
-      <InfoCard titulo="Inventario" dato="1203"/>
-      <InfoCard titulo="Inventario" dato="1203"/>
+      <InfoCard titulo="Inventario" dato="12030"/>
+      <InfoCard titulo={"Reportes"} dato="703"/>
+      <InfoCard titulo="Facturaciones" dato="113"/>
+      <InfoCard titulo="Usuarios" dato="11"/>
     </section>
   </section>
 </Layout>
@@ -15,5 +17,18 @@
   .container{
     width: 100%;
     padding: 0.5rem;
+  }
+
+  .infocards {
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+
+    @media (width < 1024px){
+      flex-direction:column;
+      justify-content: center;
+    }
   }
 </style>

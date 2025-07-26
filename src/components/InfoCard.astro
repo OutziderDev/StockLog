@@ -17,12 +17,12 @@
   }
 
   .content-card {
-    width: 20%;
-    height: 20%;
-    background: linear-gradient( var(--gradient-angle),#fff1, var(--color-crema),#fff1);
-    padding: 0.5px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( var(--gradient-angle),#fff1, #fff7,#fff1);
+    padding: 0.8px;
     border-radius: 1rem;
-    animation: rotate 10s linear infinite;
+    animation: rotate 7s linear infinite;
   }
 
   .card-info {
@@ -32,6 +32,26 @@
     padding: 1rem;
     background-color: var(--color-morado-claro);
     border-radius:1rem;
+
+    & > span {
+      width: 100%;
+      font-size: 4rem;
+      text-align: center;
+      font-family:monospace;
+      font-weight: bold;
+    }
+
+    & > p {
+      width: 100%;
+      opacity: 0.8;
+      text-align: center;
+      font-weight:bold;
+      font-size:1.2rem
+    }
+
+    &:hover {
+      background-color: var(--color-morado-hover);
+    }
   }
 
   @keyframes rotate {
