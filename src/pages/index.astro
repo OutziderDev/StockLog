@@ -6,7 +6,9 @@
 ---
 <Layout>
   <section class="container">
+     
     <section class="infocards">
+      <h3>Datos más recientes</h3>
       <InfoCard titulo="Reportes en Agosto" dato="703"/>
       <InfoCard titulo="Facturaciones en Agosto" dato="113"/>
       <InfoCard titulo="Rubros en Inventario" dato="1203"/>
@@ -22,9 +24,7 @@
 
 <style>
   .container{
-    flex: 1;
-    height: 100%;
-    padding: 3rem;
+    padding: 2.5rem;
 
     @media (width <= 1024px){
       padding: 2rem;
@@ -35,8 +35,12 @@
     width: 100%;
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+     justify-content: space-around;
     gap: 1rem;
+
+    & > h3 {
+      
+    }
 
     @media (width < 1024px){
       flex-direction:column;
