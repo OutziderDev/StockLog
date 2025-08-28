@@ -1,13 +1,36 @@
 ---
-
+// CharComponent.astro
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 ---
-<div class="chart-container">
-  hola
-</div>
+<canvas id="ventasChart"></canvas>
 
-<style>
-  .chart-container{
-    background-color: var(--color-morado-claro);
-    width: 100%;
-  }
-</style>
+<script type="module">
+  import { Chart, registerables } from 'chart.js';
+  Chart.register(...registerables);
+
+  const ctx = document.getElementById('ventasChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'line', // puedes cambiar a 'bar', 'pie', etc.
+    data: {
+      labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+      datasets: [{
+        label: 'Ventas por día',
+        data: [12, 19, 7, 15, 22, 9, 17],
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: true, position: 'top' },
+        tooltip: { enabled: true }
+      },
+      scales: { y: { beginAtZero: true } }
+    }
+  });
+</script>
