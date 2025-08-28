@@ -2,7 +2,7 @@
   const titulo: string = Astro.props.titulo
   const valor:number = Astro.props.dato || 0
 ---
-<article class="content-card">
+<article class="content-card" role="listitem">
   <dl class="card-info">
     <dt class="cardLabel">{titulo}</dt>
     <dd class="cardValue">{valor}</dd>
@@ -22,6 +22,7 @@
     background: linear-gradient( var(--gradient-angle),#fff1, #fff7,#fff1);
     padding: 0.05rem;
     border-radius: 1rem;
+    user-select: none;
     animation: rotate 7s linear infinite;
   }
 
