@@ -55,7 +55,7 @@ import SettingIcon from '../assets/icons/settings.svg'
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    transition: width 0.3s ease;
+    transition: width 0.1s ease;
 
     & > .title {
       padding-inline: 1rem;
@@ -197,9 +197,15 @@ import SettingIcon from '../assets/icons/settings.svg'
 
 </style>
 
-<script lang="js">
-  const check = document.querySelector('#toggle-sidebar')  
-  if (check.checked.value ) {
-    alert('lata')
+<script  >
+  const check = document.querySelector('#toggle-sidebar')  as HTMLInputElement
+  const saveState = localStorage.getItem('sidebar-state')
+
+  if (saveState !== null) {
+    check.checked = saveState === 'true'
   }
+
+  check.addEventListener('change', () => {
+    localStorage.setItem('sidebar-state', String(check.checked));
+  })
 </script>
