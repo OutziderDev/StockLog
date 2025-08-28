@@ -1,30 +1,61 @@
 ---
 
 ---
-<div class="recent-activities-container">
-  <h2>Actividades Reciente</h2>
-  <div>
-    <span>Factura</span> <span>#1037</span>
-    <span>Cliente:</span> <span>Antonio el Toño</span>
-  </div>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Factura</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Monto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#1651653</td>
+      <td>16/06/2004</td>
+      <td>Venta</td>
+      <td>$32,15</td>
+    </tr>
+    <tr>
+      <td>#1651654</td>
+      <td>17/06/2004</td>
+      <td>Venta</td>
+      <td>$120,00</td>
+    </tr>
+    <tr>
+      <td>#1651655</td>
+      <td>18/06/2004</td>
+      <td>Compra</td>
+      <td>$89,99</td>
+    </tr>
+  </tbody>
+</table>
 
 <style>
-  .recent-activities-container{
+  table {
     width: 100%;
-    background-color: var(--color-morado-claro);
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
+    background: var(--color-morado-claro);
+    border-collapse: collapse;
+    overflow: hidden;
+    font-size: 1.1rem;
 
-    & > h2 {
-      font-weight: bold;
-      font-size: 1.3rem;
+    & th, td {
+      padding: 0.7rem;
+      text-align: left;
     }
 
-    &:hover {
-      background-color: var(--color-morado-hover);
+    & thead {
+      background-color: var(--color-naranja-oscuro);
+       font-weight: 600;
+    }
+
+    & tbody tr:nth-child(even) {
+      background: var(--color-morado-hover);
+    }
+
+    @media (width <= 768px){
+      width: 50%;
     }
   }
 </style>
