@@ -28,8 +28,8 @@ import Sidebar from "../sections/Sidebar.astro";
     --color-morado-oscuro: #1c0e28;
     --color-morado-claro: #261636;
     --color-morado-hover: #2b1d3f;
-    --color-naranja-claro: #f49c49;/* FFA270; */
-    --color-naranja-oscuro: #e48440; /* e48440 */
+    --color-naranja-claro: #e68429;/* FFA270; */
+    --color-naranja-oscuro: #d56414; /* e48440 */
     --color-crema: #fff2e0;
   }
 
@@ -56,6 +56,17 @@ import Sidebar from "../sections/Sidebar.astro";
     clip: rect(0 0 0 0);
     overflow: hidden;
     white-space: nowrap;
+  }
+
+  .container{
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (width <= 1024px){
+      padding: 2rem;
+    }
   }
 
   @keyframes fade-in {
