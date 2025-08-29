@@ -1,8 +1,9 @@
 ---
-  import ChartWeekActivity from '../components/ChartWeekActivity.astro';
-  import InfoCard from '../components/InfoCard.astro';
-  import ResumenActivity from '../components/ResumenActivity.astro';
-  import Layout from '../layouts/Layout.astro';
+  import ChartWeekActivity from '@/components/Dashboard/ChartWeekActivity.astro';
+  import ResumenActivity from '@/components/Dashboard/ResumenActivity.astro';
+  import DashDirecAccess from '@/components/Dashboard/DashDirecAccess.astro';
+  import InfoCard from '@/components/Dashboard/InfoCard.astro';
+  import Layout from '@/layouts/Layout.astro';
 ---
 <Layout>
   <section class="container">
@@ -22,6 +23,13 @@
       <section class="resumen-activity">
         <ResumenActivity/>
         <ChartWeekActivity  />
+      </section>
+    </section>
+
+    <section class="subcontainer">
+      <h3>Accesos Directos</h3>
+      <section class="infocards">
+        <DashDirecAccess />
       </section>
     </section>
   </section>

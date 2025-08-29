@@ -1,0 +1,54 @@
+---
+import Cajas from '@/assets/icons/boxes.svg'
+import FacturasIcon from '@/assets/icons/factura.svg'
+import FaqsIcon from '@/assets/icons/faq.svg'
+---
+<nav class="access-direct">
+  <a href="">
+    <Cajas />
+  </a>
+  <a href="">
+    <FacturasIcon />
+  </a>
+  <a href="">
+    <FaqsIcon />
+  </a>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    @media ( width < 768px){
+      flex-direction: column;
+      align-items: center;
+    }
+   }
+
+  a {
+    display: block;
+    background-color: var(--color-morado-claro);
+    height: 10rem;
+    width: 10rem;
+    border-radius: 0.5rem;
+    transition: bakcground-color 1s ease;
+
+    &:hover {
+      background-color: var(--color-morado-hover);
+    }
+
+    & > svg {
+      height: 100%;
+      width: 100%;
+      padding: 1.5rem;
+      stroke: var(--color-naranja-oscuro);
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.15)
+      }
+    }
+  }
+</style>
