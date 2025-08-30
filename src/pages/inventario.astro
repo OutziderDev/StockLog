@@ -4,13 +4,14 @@ import LupaIcon from '@/assets/icons/lupa.svg'
 import AddIcon from '@/assets/icons/add.svg'
 import { materiales } from '@/data/materiales'
 
-const materialesClave = Object.keys(materiales[0]);
+type Material = typeof materiales[0];
+const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>;
 ---
 <Layout >
   <section class="container">
     <header>
       <h1 class="tittle">Inventario de Materiales</h1>
-      <button class="add" aria-label="Agregar Producto"> <AddIcon/> Agregar Producto</button>
+      <button class="" id="addProducto" aria-label="Agregar Producto"> <AddIcon/> Agregar Producto</button>
     </header>
 
     <section>
@@ -41,22 +42,30 @@ const materialesClave = Object.keys(materiales[0]);
     </section>
      
     <table>
-      <caption>Materiales en Inventario</caption>
+      <!-- <caption>Materiales en Inventario</caption> -->
       <thead>
         <tr>
-          {materialesClave.map( clave => <th>{clave}</th>)}
+          {materialesClave.map( clave => <th>{clave.toLocaleUpperCase()}</th>)}
           <th>Opcion</th>
         </tr>
       </thead>
       <tbody>
         {materiales.map( material => (
           <tr>
-            {materialesClave.map( clave => <td>{ material[clave]}</td>)}
+            {materialesClave.map( clave => (<td style={clave == 'cantidad' || clave == 'nombre'  ? 'font-weight:bold;text-align:center;' : ''} >  {material[clave]}</td>))}
           </tr>
         ))}
       </tbody>
       <!-- <tfoot>Tabla de Materiales en el sistema</tfoot> -->
     </table>
+
+    <dialog id="dialogFormAdd" closedby="none">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, perferendis! Aspernatur tempore quis est earum fuga dicta debitis necessitatibus voluptas asperiores vitae. Dignissimos enim veniam expedita sed quam nam quae!</p>
+      <form>
+        <button formmethod="dialog" style="background-color: red;"> cerrar</button>
+      </form>
+    </dialog>
+
   </section>
 </Layout>
 
@@ -156,5 +165,30 @@ const materialesClave = Object.keys(materiales[0]);
       padding: 0.5rem;
       font-weight: 900;
     }
+
+    & td {
+      padding: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    & tbody > tr:hover{
+      background-color: var(--color-morado-hover);
+    }
+
+    & tbody tr:nth-child(even) {
+      background: var(--color-morado-claro);
+      
+      &:hover{
+        background-color: var(--color-morado-hover);
+      }
+    }
   }
 </style>
+
+<script>
+  const btnAddProducto = document.querySelector('#addProducto') as HTMLButtonElement
+  const dialog = document.querySelector('#dialogFormAdd') as HTMLDialogElement
+  btnAddProducto?.addEventListener('click', () => {
+    dialog?.showModal()
+  })
+</script>
