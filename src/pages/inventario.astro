@@ -2,6 +2,9 @@
 import Layout from '@/layouts/Layout.astro'
 import LupaIcon from '@/assets/icons/lupa.svg'
 import AddIcon from '@/assets/icons/add.svg'
+import { materiales } from '@/data/materiales'
+
+const materialesClave = Object.keys(materiales[0]);
 ---
 <Layout >
   <section class="container">
@@ -37,6 +40,23 @@ import AddIcon from '@/assets/icons/add.svg'
       </form>
     </section>
      
+    <table>
+      <caption>Materiales en Inventario</caption>
+      <thead>
+        <tr>
+          {materialesClave.map( clave => <th>{clave}</th>)}
+          <th>Opcion</th>
+        </tr>
+      </thead>
+      <tbody>
+        {materiales.map( material => (
+          <tr>
+            {materialesClave.map( clave => <td>{ material[clave]}</td>)}
+          </tr>
+        ))}
+      </tbody>
+      <!-- <tfoot>Tabla de Materiales en el sistema</tfoot> -->
+    </table>
   </section>
 </Layout>
 
@@ -121,6 +141,20 @@ import AddIcon from '@/assets/icons/add.svg'
       &:hover {
         background-color: var(--color-naranja-claro);
       }
+    }
+  }
+
+  table {
+    width: 100%;
+
+    & > thead {
+      /* color: var(--color-morado-oscuro); */
+      background-color: var(--color-naranja-oscuro);
+    }
+
+    & th {
+      padding: 0.5rem;
+      font-weight: 900;
     }
   }
 </style>
