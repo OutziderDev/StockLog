@@ -1,36 +1,42 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import LupaIcon from '@/assets/icons/lupa.svg'
+import AddIcon from '@/assets/icons/add.svg'
 ---
-
 <Layout >
   <section class="container">
     <header>
       <h1 class="tittle">Inventario de Materiales</h1>
-      <button class="add"> <span>+</span> Agregar Producto</button>
+      <button class="add" aria-label="Agregar Producto"> <AddIcon/> Agregar Producto</button>
     </header>
+
     <section>
-      <h3 class="sr-only">Panel de Filtros</h3>
-      <form action="" >
-        <input type="text" class="inputbase" placeholder="Buscar Producto..." />
-        <select name="categoria" class="inputbase" id="categoria">
-          <option value="" disabled selected>-- Categoria --</option>
+      <h2 class="sr-only">Panel de Filtros</h2>
+      <form action="">
+         
+        <label for="inputbusqueda" class="sr-only">Buscar Productos</label>
+        <input type="text" name="inputbusqueda" id="inputbusqueda" class="inputbase" placeholder="Buscar Producto..." />
+
+        <label for="inputCategoria" class="sr-only">Busqueda con Categoría</label>
+        <select name="inputCategoria" class="inputbase" id="inputCategoria">
+          <option value="" disabled selected>Selecciona una categoría</option>
           <option value="herramientas">Herramientas</option>
           <option value="materiales">Materiales</option>
           <option value="maquinaria">Maquinaria</option>
         </select>
-        <select name="ubicacion" class="inputbase" id="ubicacion">
-          <option value="" disabled selected>-- Ubicacion --</option>
+
+        <label for="inputUbicacion" class="sr-only">Busqueda con Bodega</label>
+        <select name="inputUbicacion" class="inputbase" id="inputUbicacion">
+          <option value="" disabled selected>Selecciona una Ubicacíon</option>
           <option value="bodega1">Bodega 1</option>
           <option value="bodega2">Bodega 2</option>
           <option value="bodega3">Bodega 3</option>
         </select>
-        <button type="submit"> <LupaIcon/> Filtrar</button>
+        
+        <button type="submit"> <LupaIcon aria-hidden="true"/> Filtrar</button>
       </form>
     </section>
-    <table>
-
-    </table>
+     
   </section>
 </Layout>
 
@@ -68,9 +74,9 @@ import LupaIcon from '@/assets/icons/lupa.svg'
         background-color: var(--color-naranja-claro);
       }
 
-      & > span {
-        color: var(--color-morado-oscuro);
-        font-weight: bolder;
+      & > svg {
+        stroke: var(--color-morado-oscuro);
+        stroke-width: 3;
       }
     }
   }
@@ -78,6 +84,7 @@ import LupaIcon from '@/assets/icons/lupa.svg'
   form {
     width: 100%;
     display: flex;
+    justify-content: center;
     flex-direction: row;
     gap: 1rem;;
 
@@ -93,7 +100,7 @@ import LupaIcon from '@/assets/icons/lupa.svg'
       }
     }
 
-    & > #categoria, #ubicacion {
+    & > #inputCategoria, #inputUbicacion {
       width: 25%;
 
       @media( width <= 768px) {
