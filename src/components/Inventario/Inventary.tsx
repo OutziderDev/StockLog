@@ -1,4 +1,5 @@
 import { materiales } from '@/data/materiales'
+import '@/components/Inventario/inventary.css'
 
 export default function Inventary () {
   type Material = typeof materiales[0];

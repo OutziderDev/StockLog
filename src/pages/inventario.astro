@@ -153,37 +153,6 @@ const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>; */
       }
     }
   }
-
-  #inventarioTable {
-    width: 100%;
-
-    & > thead {
-      /* color: var(--color-morado-oscuro); */
-      background-color: var(--color-naranja-oscuro);
-    }
-
-    & th {
-      padding: 0.5rem;
-      font-weight: 900;
-    }
-
-    & td {
-      padding: 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    & tbody > tr:hover{
-      background-color: var(--color-morado-hover);
-    }
-
-    & tbody tr:nth-child(even) {
-      background: var(--color-morado-claro);
-      
-      &:hover{
-        background-color: var(--color-morado-hover);
-      }
-    }
-  }
 </style>
 
 <script>
