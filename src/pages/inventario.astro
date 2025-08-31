@@ -2,10 +2,11 @@
 import Layout from '@/layouts/Layout.astro'
 import LupaIcon from '@/assets/icons/lupa.svg'
 import AddIcon from '@/assets/icons/add.svg'
-import { materiales } from '@/data/materiales'
+/* import { materiales } from '@/data/materiales'
+ */import Inventary from '@/components/Inventario/Inventary'
 
-type Material = typeof materiales[0];
-const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>;
+/* type Material = typeof materiales[0];
+const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>; */
 ---
 <Layout >
   <section class="container">
@@ -40,9 +41,10 @@ const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>;
         <button type="submit"> <LupaIcon aria-hidden="true"/> Filtrar</button>
       </form>
     </section>
-     
-    <table>
-      <!-- <caption>Materiales en Inventario</caption> -->
+    
+    <Inventary client:load/>
+    <!-- <table>
+      - <caption>Materiales en Inventario</caption> --
       <thead>
         <tr>
           {materialesClave.map( clave => <th>{clave.toLocaleUpperCase()}</th>)}
@@ -56,8 +58,7 @@ const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>;
           </tr>
         ))}
       </tbody>
-      <!-- <tfoot>Tabla de Materiales en el sistema</tfoot> -->
-    </table>
+     </table> -->
 
     <dialog id="dialogFormAdd" closedby="none">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, perferendis! Aspernatur tempore quis est earum fuga dicta debitis necessitatibus voluptas asperiores vitae. Dignissimos enim veniam expedita sed quam nam quae!</p>
@@ -153,7 +154,7 @@ const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>;
     }
   }
 
-  table {
+  #inventarioTable {
     width: 100%;
 
     & > thead {

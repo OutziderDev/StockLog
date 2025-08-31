@@ -9,8 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/preact": "^4.1.0",
     "astro": "^5.13.4",
-    "chart.js": "^4.5.0"
+    "chart.js": "^4.5.0",
+    "preact": "^10.27.1"
   },
   "devDependencies": {
     "oxlint": "^1.6.0"
