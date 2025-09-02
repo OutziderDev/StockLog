@@ -9,41 +9,46 @@ import Inventary from '@/components/Inventario/Inventary'
       <h1 class="tittle">Inventario de Materiales</h1>
       <button class="" id="addProducto" aria-label="Agregar Producto"> <AddIcon/> Agregar Producto</button>
     </header>
-
-    <!--<section>
-      <h2 class="sr-only">Panel de Filtros</h2>
-      <form action="">
-         
-        <label for="inputbusqueda" class="sr-only">Buscar Productos</label>
-        <input type="text" name="inputbusqueda" id="inputbusqueda" class="inputbase" placeholder="Buscar Producto..." />
-
-        <label for="inputCategoria" class="sr-only">Busqueda con Categoría</label>
-        <select name="inputCategoria" class="inputbase" id="inputCategoria">
-          <option value="" disabled selected>Selecciona una categoría</option>
-          <option value="herramientas">Herramientas</option>
-          <option value="materiales">Materiales</option>
-          <option value="maquinaria">Maquinaria</option>
-        </select>
-
-        <label for="inputUbicacion" class="sr-only">Busqueda con Bodega</label>
-        <select name="inputUbicacion" class="inputbase" id="inputUbicacion">
-          <option value="" disabled selected>Selecciona una Ubicacíon</option>
-          <option value="bodega1">Bodega 1</option>
-          <option value="bodega2">Bodega 2</option>
-          <option value="bodega3">Bodega 3</option>
-        </select>
-        
-        <button type="submit"> <LupaIcon aria-hidden="true"/> Filtrar</button>
-      </form>
-    </section> -->
     
     <Inventary client:load/>
 
     <dialog id="dialogFormAdd" closedby="none">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, perferendis! Aspernatur tempore quis est earum fuga dicta debitis necessitatibus voluptas asperiores vitae. Dignissimos enim veniam expedita sed quam nam quae!</p>
-      <form>
-        <button formmethod="dialog" style="background-color: red;"> cerrar</button>
+      <h3>Formulario para Agregar un nuevo material</h3>
+      <form action="" class="formdialog">
+        <label for="nombre">Nombre del material:
+          <input type="text" class="inputbase" name="nombre" id="nombre" placeholder="Bisagras de 3 x 1/2" required>
+        </label>
+
+        <label for="cantidad">Cantidad:
+          <input type="number" class="inputbase" name="cantidad" id="cantidad" placeholder="100" required>
+        </label>
+
+        <label for="unidad">
+          Unidad de medida:
+          <input type="text" class="inputbase" name="unidad" id="unidad" placeholder="C/u, metros, caja..." required>
+        </label>
+
+        <label for="precio">
+          Precio por unidad:
+          <input type="number" class="inputbase" name="precio" id="precio" placeholder="1500" required>
+        </label>
+
+        <label for="categoria">Categoría:
+          <select name="categoria" id="categoria" class="inputbase" required>
+            <option value="" disabled selected>Selecciona una categoría</option>
+            <option value="ferreteria">Ferretería</option>
+            <option value="madera">Madera</option>
+            <option value="pintura">Pintura</option>
+            <option value="herramientas">Herramientas</option>
+          </select>
+        </label>
       </form>
+      <div class="btngroup">
+        <form>
+          <button formmethod="dialog" style="background-color: red;"> cerrar</button>
+        </form>
+        <button formmethod="post">Guardar</button>
+      </div>
     </dialog>
 
   </section>
@@ -90,48 +95,39 @@ import Inventary from '@/components/Inventario/Inventary'
     }
   }
 
-  /* form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 1rem;;
+  dialog{
+    min-width: 40dvw;
+    margin: auto;
+    padding: 1.5rem;
+    border-radius: 0.4rem;
+    background-color: var(--color-morado-oscuro);
+    border: 1px groove var(--color-naranja-claro);
 
-    @media ( width <= 768px) {
-      flex-direction: column;
+    & > h3 {
+      color: var(--color-crema);
+      font-size: 1.5rem;
+      text-align: center;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--color-crema);
     }
 
-    & > input[type="text"] {
-      width: 50%;
+    & > .formdialog {
+      margin-block: 1.5rem;
 
-      @media( width <= 768px) {
-        width: 100%;
-      }
+      & > label {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        font-weight: 600;
+        color: var(--color-crema);
+        gap: 0.5rem;
+       }
     }
-
-    & > #inputCategoria, #inputUbicacion {
-      width: 25%;
-
-      @media( width <= 768px) {
-        width: 100%;
-      }
+    &::backdrop {
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
     }
-
-    & > button {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.3rem 1rem;
-      border: none;
-      border-radius: 0.4rem;
-      cursor:pointer;
-      background-color: var(--color-naranja-oscuro);
-      color: white;
-      &:hover {
-        background-color: var(--color-naranja-claro);
-      }
-    }
-  } */
+  }
 </style>
 
 <script>

@@ -31,7 +31,7 @@ export default function Inventary () {
           <option value="bodega3">Bodega 3</option>
         </select>
         
-        <button type="submit"> <img src={LupaIcon.src} aria-hidden="true" /> Filtrar</button>
+        <button type="submit" className={'btnform'}> <img src={LupaIcon.src} aria-hidden="true" alt={''}/> Filtrar</button>
       </form>
     </section> 
     <table className={'inventarioTable'}>
