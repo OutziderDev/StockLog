@@ -14,7 +14,7 @@ import Inventary from '@/components/Inventario/Inventary'
 
     <dialog id="dialogFormAdd" closedby="none">
       <h3>Formulario para Agregar un nuevo material</h3>
-      <form action="" class="formdialog">
+      <form action="POST" class="formdialog">
         <label for="nombre">Nombre del material:
           <input type="text" class="inputbase" name="nombre" id="nombre" placeholder="Bisagras de 3 x 1/2" required>
         </label>
@@ -45,9 +45,9 @@ import Inventary from '@/components/Inventario/Inventary'
       </form>
       <div class="btngroup">
         <form>
-          <button formmethod="dialog" style="background-color: red;"> cerrar</button>
+          <button formmethod="dialog" style="background-color: red;">Cancelar</button>
         </form>
-        <button formmethod="post">Guardar</button>
+        <button type="submit">Guardar</button>
       </div>
     </dialog>
 
@@ -123,6 +123,37 @@ import Inventary from '@/components/Inventario/Inventary'
         gap: 0.5rem;
        }
     }
+
+    & > .btngroup {
+      display: flex;
+      justify-content: space-around;
+
+      & > form {
+        width: min-content;
+      }
+
+      &  button {
+        display:block;
+        padding: 0.5rem 0.8rem;
+        border-radius: 0.3rem;
+        border:none;
+        cursor:pointer;
+        background-color: rgb(15, 183, 15);
+        color: white;
+        font-size: 1rem;
+        font-weight: bolder;
+        transition: all 0.2s ease;
+
+        &:hover {
+          mix-blend-mode: difference ;
+        }
+
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+    }
+
     &::backdrop {
       background-color: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(3px);

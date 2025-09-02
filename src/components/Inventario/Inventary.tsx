@@ -1,11 +1,19 @@
 import { materiales } from '@/data/materiales'
 import '@/components/Inventario/inventary.css'
 import LupaIcon from '@/assets/icons/lupa.svg'
+import { useState } from 'preact/hooks';
 
 export default function Inventary () {
+  //Key de objeto por materiales
   type Material = typeof materiales[0];
   const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>;
 
+  //Estado para materiales
+  const [productos, setProductos] = useState(null);
+  const [ filtro, setFiltro ] = useState({ busqueda: '', categoria: '', ubicacion: '' });
+  console.log(filtro);
+  if (!materiales) return 
+  
   return (
     <>
     <section>
