@@ -1,12 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import LupaIcon from '@/assets/icons/lupa.svg'
 import AddIcon from '@/assets/icons/add.svg'
-/* import { materiales } from '@/data/materiales'
- */import Inventary from '@/components/Inventario/Inventary'
-
-/* type Material = typeof materiales[0];
-const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>; */
+import Inventary from '@/components/Inventario/Inventary'
 ---
 <Layout >
   <section class="container">
@@ -15,7 +10,7 @@ const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>; */
       <button class="" id="addProducto" aria-label="Agregar Producto"> <AddIcon/> Agregar Producto</button>
     </header>
 
-    <section>
+    <!--<section>
       <h2 class="sr-only">Panel de Filtros</h2>
       <form action="">
          
@@ -40,25 +35,9 @@ const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>; */
         
         <button type="submit"> <LupaIcon aria-hidden="true"/> Filtrar</button>
       </form>
-    </section>
+    </section> -->
     
     <Inventary client:load/>
-    <!-- <table>
-      - <caption>Materiales en Inventario</caption> --
-      <thead>
-        <tr>
-          {materialesClave.map( clave => <th>{clave.toLocaleUpperCase()}</th>)}
-          <th>Opcion</th>
-        </tr>
-      </thead>
-      <tbody>
-        {materiales.map( material => (
-          <tr>
-            {materialesClave.map( clave => (<td style={clave == 'cantidad' || clave == 'nombre'  ? 'font-weight:bold;text-align:center;' : ''} >  {material[clave]}</td>))}
-          </tr>
-        ))}
-      </tbody>
-     </table> -->
 
     <dialog id="dialogFormAdd" closedby="none">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, perferendis! Aspernatur tempore quis est earum fuga dicta debitis necessitatibus voluptas asperiores vitae. Dignissimos enim veniam expedita sed quam nam quae!</p>
@@ -111,7 +90,7 @@ const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>; */
     }
   }
 
-  form {
+  /* form {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -152,7 +131,7 @@ const materialesClave = Object.keys(materiales[0]) as Array<keyof Material>; */
         background-color: var(--color-naranja-claro);
       }
     }
-  }
+  } */
 </style>
 
 <script>
