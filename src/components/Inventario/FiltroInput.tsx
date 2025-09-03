@@ -1,11 +1,12 @@
 import LupaIcon from '@/assets/icons/lupa.svg'
+import type { JSX } from 'preact/jsx-runtime';
 
 interface FiltroInputProps {
   dato: string;
-  onChange: (value: string) => void;
+  onChange: (e: JSX.TargetedEvent<HTMLInputElement, Event>) => void;
 }
 
-export default function FiltroInput({ dato, onChange }: FiltroInputProps) {
+const FiltroInput = ({ dato, onChange }: FiltroInputProps) => {
 
   return (
     <section>
@@ -13,7 +14,7 @@ export default function FiltroInput({ dato, onChange }: FiltroInputProps) {
       <form action="">
         
         <label for="inputbusqueda" class="sr-only">Buscar Productos</label>
-        <input type="text" name="inputbusqueda" id="inputbusqueda" class="inputbase" placeholder="Buscar Producto..." />
+        <input type="text" name="inputbusqueda" onChange={onChange} id="inputbusqueda" value={dato} class="inputbase" placeholder="Buscar Producto..." />
 
         <label for="inputCategoria" class="sr-only">Busqueda con Categoría</label>
         <select name="inputCategoria" class="inputbase" id="inputCategoria">
@@ -36,3 +37,5 @@ export default function FiltroInput({ dato, onChange }: FiltroInputProps) {
     </section> 
   );
 }
+
+export default FiltroInput
