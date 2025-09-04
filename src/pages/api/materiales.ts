@@ -1,15 +1,20 @@
 import type { APIRoute } from "astro";
+import { supabase } from '@/scripts/supabaseClient'
 
 export const GET: APIRoute = async () => {
-  const materiales = [ {pala: "roja", mango:"duro"}] /* = await sql`SELECT * FROM materiales`; */
-  return new Response(JSON.stringify(materiales), {
-    headers: { "Content-Type": "application/json" },
-  });
-};
+  try {
+    const { data, error } = await supabase.from('materiales').select('*')
+     
+    if (error) {
+      return new Response(JSON.stringify({Error: error.message}), {status:500})
+    }
 
-export const POST: APIRoute = async ({ request }) => {
-  const body = await request.json();
-  const { nombre, cantidad } = body;
-  /* await sql`INSERT INTO materiales (nombre, cantidad) VALUES (${nombre}, ${cantidad})`; */
-  return new Response(JSON.stringify({ ok: true }), { status: 201 });
+    return new Response(JSON.stringify(data), {
+      headers: { "Content-Type": "application/json" },
+    });
+
+  } catch (error) {
+    return new Response("paso algo", {status:500})
+  }
+
 };
