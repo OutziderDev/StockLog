@@ -1,6 +1,7 @@
-// src/services/materiales.ts
-export async function getMateriales() {
-  const res = await fetch("/api/materiales");
+const baseURL = '/api'
+
+export const getMateriales = async () => {
+  const res = await fetch(`${baseURL}/materiales`);
   return res.json();
 }
 
