@@ -6,17 +6,21 @@ import TableProductos from './TableProductos';
 import { getMateriales } from '@/services/materialesServices'
 
 export default function Inventary () {
-
   //Estado para materiales
   const [materiales, setMateriales] = useState(null);
-  console.log('los materiales son:',materiales);
+  /* console.log('los materiales son:',materiales); */
   
   const [ filtro, setFiltro ] = useState('');
 
   useEffect(() => {
-    const fetchMateriales = async () => {
-      const materiales = await getMateriales()
-      setMateriales(materiales)
+     async function fetchMateriales() {
+      try {
+        const materiales = await getMateriales()
+        setMateriales(materiales)
+      } catch (error) {
+        console.error('Error cargando materiales:', error);
+      }
+
     }
     fetchMateriales();
   },[])

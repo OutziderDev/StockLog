@@ -45,18 +45,18 @@ form {
     width: 100%;
 
     & > thead {
-      /* color: var(--color-morado-oscuro); */
       background-color: var(--color-naranja-oscuro);
     }
 
     & th {
       padding: 0.5rem;
-      font-weight: 900;
+      text-transform: uppercase;
     }
 
     & td {
       padding: 0.5rem;
       font-size: 1.2rem;
+      text-align: center;
     }
 
     & tbody > tr:hover{
