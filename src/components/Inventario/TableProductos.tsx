@@ -1,30 +1,39 @@
+import type { Material } from '@/types/materialesTypes'
+import TableHeader from './TableHeader';
+
 interface propsTable {
-  data: Array<object>,
+  data: Material[],
   dataFiltro: string,
   modificarFiltro: Function,
 }
 
 const TableProductos = ({data, dataFiltro, modificarFiltro}: propsTable) => {
+  console.log('el filtro:', dataFiltro);
+
+  const materialExacto = dataFiltro ? data.filter( dato => dato.nombre.toLowerCase().includes(dataFiltro.toLowerCase())) : []
+  console.log(materialExacto);
+  
   //Key de objeto por materiales
-  type Material = typeof data[0];
   const materialesClave = Object.keys(data[0]) as Array<keyof Material>;
 
   return (
-    <table className={'inventarioTable'}>
-      <thead>
-        <tr>
-          {materialesClave.map( clave => <th>{ clave }</th>)}
-          {/* <th>Opcion</th> */}
-        </tr>
-      </thead>
-      <tbody>
-        {data.map( material => (
+    <TableHeader claves={materialesClave} >
+      { materialExacto.length === 1 
+        ? ( materialExacto.map( material => 
           <tr>
-            {materialesClave.map( clave => (<td>  {material[clave]}</td>))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+              {materialesClave.map( clave => (<td>{ material[clave] }</td>))}
+            </tr>
+         )) 
+        : (
+          data.map( material => (
+            <tr>
+              {materialesClave.map( clave => (<td>{ material[clave] }</td>))}
+            </tr>
+          ))
+        )
+      
+      }
+    </TableHeader>
   )
 }
 
