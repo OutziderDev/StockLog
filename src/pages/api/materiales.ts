@@ -3,8 +3,8 @@ import { supabase } from '@/scripts/supabaseClient'
 
 export const GET: APIRoute = async () => {
   try {
-    const { data, error } = await supabase.from('materiales').select('id,nombre,cantidad,precio,categoria:categorias(nombre),unidad:unidad_medida(nombre)')
-     
+    const { data, error } = await supabase.from('materiales').select('id,nombre,cantidad,precio,categoria:categorias(nombre),unidad:unidad_medida(nombre)').order('nombre', {ascending: true})
+       
     if (error) {
       return new Response(JSON.stringify({Error: error.message}), {status:500})
     }

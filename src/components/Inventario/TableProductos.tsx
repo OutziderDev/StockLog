@@ -14,7 +14,12 @@ const TableProductos = ({data, dataFiltro, modificarFiltro}: propsTable) => {
   console.log("datos desde tabla:",data);
   console.log("filtros en tabla:",dataFiltro);
   
-  const materialExacto = dataFiltro ? data.filter( dato => dato.nombre.toLowerCase().includes(dataFiltro.texto.toLowerCase())) : []
+  const materialExacto = data.filter( dato => {
+    const tieneTexto = dataFiltro.texto === '' || dato.nombre.toLowerCase().includes(dataFiltro.texto.toLowerCase())
+    const tieneCategoria = dataFiltro.categoria === '' || dato.categoria.toLowerCase().includes(dataFiltro.categoria.toLowerCase())
+
+    return tieneTexto && tieneCategoria
+  })
   console.log('buscando material:',materialExacto);
   
   //Key de objeto por materiales
