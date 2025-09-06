@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import AddIcon from '@/assets/icons/add.svg'
-import Inventary from '@/components/Inventario/Inventary'
+import InventarioComponent from '@/components/Inventario/Inventario'
 ---
 <Layout >
   <section class="container">
@@ -10,7 +10,7 @@ import Inventary from '@/components/Inventario/Inventary'
       <button class="" id="addProducto" aria-label="Agregar Producto"> <AddIcon/> Agregar Producto</button>
     </header>
     
-    <Inventary client:load/>
+    <InventarioComponent client:load/>
 
     <dialog id="dialogFormAdd" closedby="none">
       <h3>Formulario para Agregar un nuevo material</h3>

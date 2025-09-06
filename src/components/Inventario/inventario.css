@@ -1,0 +1,83 @@
+form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;;
+
+  @media ( width <= 768px) {
+    flex-direction: column;
+  }
+
+  & > input[type="text"] {
+    width: 50%;
+
+    @media( width <= 768px) {
+      width: 100%;
+    }
+  }
+
+  & > #inputCategoria, #inputUbicacion {
+    width: 25%;
+
+    @media( width <= 768px) {
+      width: 100%;
+    }
+  }
+
+  & > .btnform {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 1rem;
+    border: none;
+    border-radius: 0.4rem;
+    cursor:pointer;
+    background-color: var(--color-naranja-oscuro);
+    color: white;
+    &:hover {
+      background-color: var(--color-naranja-claro);
+    }
+  }
+}
+
+.inventarioTable {
+  width: 100%;
+
+  & > thead {
+    background-color: var(--color-naranja-oscuro);
+  }
+
+  & th {
+    padding: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  & td {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    animation: fade-td 0.2s ease;
+  }
+
+  & tbody > tr:hover{
+    background-color: var(--color-morado-hover);
+  }
+
+  & tbody tr:nth-child(even) {
+    background: var(--color-morado-claro);
+    
+    &:hover{
+      background-color: var(--color-morado-hover);
+    }
+  }
+}
+
+@keyframes fade-td {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

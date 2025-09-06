@@ -1,4 +1,4 @@
-import '@/components/Inventario/inventary.css'
+import '@/components/Inventario/inventario.css'
 import { useEffect, useState } from 'preact/hooks';
 import Filtros from './Filtros';
 import type { JSX } from 'preact/jsx-runtime';
