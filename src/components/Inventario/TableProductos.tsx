@@ -3,7 +3,10 @@ import TableHeader from './TableHeader';
 
 interface propsTable {
   data: Material[],
-  dataFiltro: string,
+  dataFiltro: {
+    texto:string,
+    categoria:string
+  },
   modificarFiltro: Function,
 }
 
@@ -11,7 +14,6 @@ const TableProductos = ({data, dataFiltro, modificarFiltro}: propsTable) => {
   console.log('el filtro:', dataFiltro);
 
   const materialExacto = dataFiltro ? data.filter( dato => dato.nombre.toLowerCase().includes(dataFiltro.toLowerCase())) : []
-  console.log(materialExacto);
   
   //Key de objeto por materiales
   const materialesClave = Object.keys(data[0]) as Array<keyof Material>;
