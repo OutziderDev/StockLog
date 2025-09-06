@@ -99,9 +99,10 @@ import InventarioComponent from '@/components/Inventario/Inventario'
     min-width: 40dvw;
     margin: auto;
     padding: 1.5rem;
-    border-radius: 0.4rem;
+    border-radius: 0.2rem;
     background-color: var(--color-morado-oscuro);
     border: 1px groove var(--color-naranja-claro);
+    scrollbar-color: var(--color-morado-hover) var(--color-morado-oscuro);
 
     & > h3 {
       color: var(--color-crema);
@@ -113,6 +114,8 @@ import InventarioComponent from '@/components/Inventario/Inventario'
 
     & > .formdialog {
       margin-block: 1.5rem;
+      display: flex;
+      flex-direction: column;
 
       & > label {
         display: flex;
