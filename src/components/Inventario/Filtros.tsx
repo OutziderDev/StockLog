@@ -11,19 +11,20 @@ interface FiltrosProps {
 }
 
 const FiltroInput = ({ dato, onChangeTexto,onChangeSelect }: FiltrosProps) => {
-  console.log('por aqui:', dato.texto);
+  console.log('texto aqui:', dato.texto);
+  console.log('filtro select:', dato.categoria);
   
   return (
     <section>
       <h2 class="sr-only">Panel de Filtros</h2>
-      <form action="">
+      <form onSubmit={(e) => {e.preventDefault()}}>
         
         <label for="inputbusqueda" class="sr-only">Buscar Productos</label>
         <input type="text" name="inputbusqueda" onChange={onChangeTexto} id="inputbusqueda" value={dato.texto} class="inputbase" placeholder="Buscar Producto..." />
 
         <label for="inputCategoria" class="sr-only">Busqueda con Categoría</label>
         <select name="inputCategoria" class="inputbase" id="inputCategoria" onChange={onChangeSelect}>
-          <option value="" disabled selected>Selecciona una categoría</option>
+          <option value="" selected>Todas</option>
           <option value="Electricidad">Electricidad</option>
           <option value="Plomería">Plomería</option>
           <option value="Construcción">Construcción</option>
@@ -37,7 +38,7 @@ const FiltroInput = ({ dato, onChangeTexto,onChangeSelect }: FiltrosProps) => {
           <option value="bodega3">Bodega 3</option>
         </select> */}
         
-        <button type="submit" className={'btnform'}> <img src={LupaIcon.src} aria-hidden="true" alt={''}/> Filtrar</button>
+        {/* <button type="submit" className={'btnform'}> <img src={LupaIcon.src} aria-hidden="true" alt={''}/> Filtrar</button> */}
       </form>
     </section> 
   );

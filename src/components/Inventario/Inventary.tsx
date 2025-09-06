@@ -8,7 +8,6 @@ import { getMateriales } from '@/services/materialesServices'
 export default function Inventary () {
   //Estado para materiales
   const [materiales, setMateriales] = useState(null);
-  /* console.log('los materiales son:',materiales); */
   
   const [ filtro, setFiltro ] = useState({
     texto: '',
@@ -30,6 +29,7 @@ export default function Inventary () {
 
    //funciones Handles
   const handleTextoFiltroChange = (e : JSX.TargetedEvent<HTMLInputElement, Event>) => {
+    e.preventDefault();
     setFiltro(prev => ({...prev, texto: e.currentTarget.value}));
   }
 
