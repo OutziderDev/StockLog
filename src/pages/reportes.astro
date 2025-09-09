@@ -1,4 +1,5 @@
 ---
+import ReportesComponent from "@/components/Reportes/ReportesComponent";
 import Layout from "@/layouts/Layout.astro";
 ---
 <Layout>
@@ -7,6 +8,8 @@ import Layout from "@/layouts/Layout.astro";
       <h1 class="tittle">Reportes de Movimientos</h1>
       <!-- <button class="" id="addProducto" aria-label="Agregar Producto"> <AddIcon/> Agregar Producto</button> -->
     </header>
+
+    <ReportesComponent client:load/>
   </section>
 </Layout>
 
