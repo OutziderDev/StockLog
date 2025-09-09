@@ -22,7 +22,6 @@ export default function Inventary () {
       } catch (error) {
         console.error('Error cargando materiales:', error);
       }
-
     }
     fetchMateriales();
   },[])
