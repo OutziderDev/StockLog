@@ -1,9 +1,9 @@
-import '@/components/Inventario/inventario.css'
+import { getMateriales } from '@/services/materialesServices'
 import { useEffect, useState } from 'preact/hooks';
-import Filtros from './Filtros';
+import '@/components/Inventario/inventario.css'
 import type { JSX } from 'preact/jsx-runtime';
 import TableProductos from './TableProductos';
-import { getMateriales } from '@/services/materialesServices'
+import Filtros from './Filtros';
 
 export default function Inventary () {
   //Estado para materiales

@@ -1,6 +1,6 @@
 ---
+import FacturasComponent from "@/components/Facturaciones/FacturasComponent"
 import Layout from "@/layouts/Layout.astro";
-
 ---
 <Layout>
   <section class="container">
@@ -8,6 +8,8 @@ import Layout from "@/layouts/Layout.astro";
       <h1 class="tittle">Creación de Facturas</h1>
       <!-- <button class="" id="addProducto" aria-label="Agregar Producto"> <AddIcon/> Agregar Producto</button> -->
     </header>
+
+    <FacturasComponent client:load/>
   </section>
 </Layout>
 
