@@ -9,7 +9,7 @@ interface TableHeaderProps {
 
 export default function TableHeader ({claves, children}: TableHeaderProps)  {
   return(
-    <table className={'inventarioTable'}>
+    <table className={'tablestyles'}>
       <thead>
         <tr>
           {claves.map( clave => <th>{ clave }</th>)}

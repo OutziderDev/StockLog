@@ -128,6 +128,38 @@ import Sidebar from "../sections/Sidebar.astro";
     }
   }
 
+  .tablestyles {
+    width: 100%;
+
+    & > thead {
+      background-color: var(--color-naranja-oscuro);
+    }
+
+    & th {
+      padding: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    & td {
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      text-align: center;
+      animation: fade-in 0.2s ease;
+    }
+
+    & tbody > tr:hover{
+      background-color: var(--color-morado-hover);
+    }
+
+    & tbody tr:nth-child(even) {
+      background: var(--color-morado-claro);
+      
+      &:hover{
+        background-color: var(--color-morado-hover);
+      }
+    }
+  }
+
   @keyframes fade-in {
     0% { opacity: 0;}
     100% { opacity:1;}
