@@ -1,4 +1,4 @@
-const baseURL = '/api'
+import { baseURL } from "./utility";
 
 export const getMateriales = async () => {
   const res = await fetch(`${baseURL}/materiales`);

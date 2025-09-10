@@ -2,8 +2,8 @@ import type { Reporte } from "@/types/reportesTypes"
 
 interface reportesProps{
   data: Reporte[],
-
 }
+
 export default function TablaReportes ({data}: reportesProps) {
   return(
     <table className={"tablestyles"}>

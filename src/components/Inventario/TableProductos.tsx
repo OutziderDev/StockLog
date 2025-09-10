@@ -11,8 +11,8 @@ interface propsTable {
 }
 
 const TableProductos = ({data, dataFiltro, modificarFiltro}: propsTable) => {
-  console.log("datos desde tabla:",data);
-  console.log("filtros en tabla:",dataFiltro);
+  /* console.log("datos desde tabla:",data);
+  console.log("filtros en tabla:",dataFiltro); */
   
   const materialExacto = data.filter( dato => {
     const tieneTexto = dataFiltro.texto === '' || dato.nombre.toLowerCase().includes(dataFiltro.texto.toLowerCase())
@@ -20,7 +20,7 @@ const TableProductos = ({data, dataFiltro, modificarFiltro}: propsTable) => {
 
     return tieneTexto && tieneCategoria
   })
-  console.log('buscando material:',materialExacto);
+  /* console.log('buscando material:',materialExacto); */
   
   //Key de objeto por materiales
   const materialesClave = Object.keys(data[0]) as Array<keyof Material>;
