@@ -10,6 +10,10 @@ interface reportesProps{
 
 export default function TablaReportes ({ data, filtros}: reportesProps) {
   /* console.log('filtros desde tabla, ya editados: ', filtros); */
+  const reporte = data.filter( item => {
+    const filtroTexto = filtros.textoFactura === '' || item.id.toString().includes(filtros.textoFactura)
+    return filtroTexto 
+  })
   
   return(
     <table className={"tablestyles"}>
@@ -24,17 +28,29 @@ export default function TablaReportes ({ data, filtros}: reportesProps) {
         </tr>
       </thead>
       <tbody>
-        {
-          data.map( reporte => (
+        { 
+          reporte.length >= 1 ? (
+            reporte.map( reporte => (
+              <tr>
+                <td># {reporte.id}</td>
+                <td>{reporte.cliente}</td>
+                <td>{reporte.tipo}</td>
+                <td>{new Date(reporte.fecha).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric"})}</td>
+                <td>$ {reporte.total.toFixed(2)}</td>
+                <td>view</td>
+              </tr>
+            ))
+          ) : 
+          (
             <tr>
-              <td># {reporte.id}</td>
-              <td>{reporte.cliente}</td>
-              <td>{reporte.tipo}</td>
-              <td>{new Date(reporte.fecha).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric"})}</td>
-              <td>$ {reporte.total}</td>
-              <td>view</td>
+              <td>─</td>
+              <td>Sin Coincidencias</td>
+              <td>─</td>
+              <td>─</td>
+              <td>─</td>
+              <td>─</td>
             </tr>
-          ))
+          )  
         }        
       </tbody>
     </table>
