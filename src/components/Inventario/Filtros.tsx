@@ -14,7 +14,7 @@ const FiltroInput = ({ dato, onChangeTexto,onChangeSelect }: FiltrosProps) => {
   return (
     <section>
       <h2 class="sr-only">Panel de Filtros</h2>
-      <form onSubmit={(e) => {e.preventDefault()}}>
+      <form className={"formFilters"} onSubmit={(e) => {e.preventDefault()}}>
         
         <label for="inputbusqueda" class="sr-only">Buscar Productos</label>
         <input type="text" name="inputbusqueda" onChange={onChangeTexto} id="inputbusqueda" value={dato.texto} class="inputbase" placeholder="Buscar Producto..." />

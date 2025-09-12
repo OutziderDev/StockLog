@@ -1,6 +1,5 @@
 import { getMateriales } from '@/services/materialesServices'
 import { useEffect, useState } from 'preact/hooks';
-import '@/components/Inventario/inventario.css'
 import type { JSX } from 'preact/jsx-runtime';
 import TableProductos from './TableProductos';
 import Filtros from './Filtros';

@@ -5,7 +5,7 @@ interface reportesProps{
 }
 
 export default function TablaReportes ({data}: reportesProps) {
-  console.log('reportes',data);
+  /* console.log('reportes',data); */
   
   return(
     <table className={"tablestyles"}>
