@@ -43,7 +43,7 @@ export default function ReportesComponent () {
   return (
     <>
       <Reportesfiltros datos={filtrosReportes} onSearchChange={handleFiltroReporte} onOrderChange={handleOrdenReporte}/>
-      <TablaReportes data={reportes}/>
+      <TablaReportes data={reportes} filtros={filtrosReportes}/>
     </>
   )
 }

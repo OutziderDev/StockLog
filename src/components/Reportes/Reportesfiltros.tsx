@@ -10,7 +10,6 @@ interface ReportesFiltrosProp {
 
 }
 export default function Reportesfiltros ( { datos, onSearchChange, onOrderChange } : ReportesFiltrosProp) {
-  console.log('los filtros en componente: ',datos);
   
   return( 
     <>

@@ -2,10 +2,14 @@ import type { Reporte } from "@/types/reportesTypes"
 
 interface reportesProps{
   data: Reporte[],
-}
+  filtros: {
+    textoFactura: string,
+    selectOrden: string
+  }
+ }
 
-export default function TablaReportes ({data}: reportesProps) {
-  /* console.log('reportes',data); */
+export default function TablaReportes ({ data, filtros}: reportesProps) {
+  /* console.log('filtros desde tabla, ya editados: ', filtros); */
   
   return(
     <table className={"tablestyles"}>
@@ -20,22 +24,18 @@ export default function TablaReportes ({data}: reportesProps) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>#16541</td>
-          <td>Mauricio</td>
-          <td>Venta</td>
-          <td>16-3-2025</td>
-          <td>$ 143.25</td>
-          <td>view</td>
-        </tr>
-        <tr>
-          <td>#6412</td>
-          <td>Raquel</td>
-          <td>Compra</td>
-          <td>16-8-2026</td>
-          <td>$ 287.24</td>
-          <td>view</td>
-        </tr>
+        {
+          data.map( reporte => (
+            <tr>
+              <td># {reporte.id}</td>
+              <td>{reporte.cliente}</td>
+              <td>{reporte.tipo}</td>
+              <td>{new Date(reporte.fecha).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric"})}</td>
+              <td>$ {reporte.total}</td>
+              <td>view</td>
+            </tr>
+          ))
+        }        
       </tbody>
     </table>
   )

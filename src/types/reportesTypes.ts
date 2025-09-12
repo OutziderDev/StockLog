@@ -3,5 +3,5 @@ export interface Reporte {
   cliente: string,
   tipo: string,
   fecha: Date,
-  monto: number,
+  total: number,
 }
