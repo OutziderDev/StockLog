@@ -13,7 +13,22 @@ export default function TablaReportes ({ data, filtros}: reportesProps) {
   const reporte = data.filter( item => {
     const filtroTexto = filtros.textoFactura === '' || item.id.toString().includes(filtros.textoFactura)
     return filtroTexto 
-  })
+  }).sort((a, b) => {
+    switch (filtros.selectOrden) {
+      case "fecha":
+        return new Date(a.fecha).getTime() - new Date(b.fecha).getTime();
+      case "monto":
+        return a.total - b.total;
+      case "clientes":
+        return a.cliente.localeCompare(b.cliente, "es", { sensitivity: "base" });
+      case "tipo":
+        return a.tipo.localeCompare(b.tipo, "es", { sensitivity: "base" });
+      case "factura":
+        return a.id - b.id;
+      default:
+        return 0; 
+    }
+  });
   
   return(
     <table className={"tablestyles"}>
