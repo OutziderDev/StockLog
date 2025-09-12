@@ -1,4 +1,17 @@
-export default function Reportesfiltros () {
+import type { TargetedEvent } from "preact/compat"
+
+interface ReportesFiltrosProp {
+  datos: {
+    textoFactura: string,
+    selectOrden: string
+  },
+  onSearchChange: (e : TargetedEvent<HTMLInputElement, Event>) => void,
+  onOrderChange: (e : TargetedEvent<HTMLSelectElement, Event>) => void
+
+}
+export default function Reportesfiltros ( { datos, onSearchChange, onOrderChange } : ReportesFiltrosProp) {
+  console.log('los filtros en componente: ',datos);
+  
   return( 
     <>
       <section>
@@ -6,10 +19,10 @@ export default function Reportesfiltros () {
         <form className={"formFilters"} onSubmit={(e) => {e.preventDefault()}}>
           
           <label for="inputSearchReport" class="sr-only">Buscar Reporte</label>
-          <input type="text" name="inputSearchReport" id="inputSearchReport" value={""} class="inputbase" placeholder="Factura #15434..." />
+          <input type="text" name="inputSearchReport" id="inputSearchReport" onChange={onSearchChange} value={datos.textoFactura} class="inputbase" placeholder="Factura #15434..." />
 
           <label for="inputOrdenReport" class="sr-only">Ordenar por:</label>
-          <select name="inputOrdenReport" class="inputbase" id="inputOrdenReport"> {/* onChange={onChangeSelect} */}
+          <select name="inputOrdenReport" class="inputbase" id="inputOrdenReport" onChange={onOrderChange}>
             <option value="" disabled selected>Orden</option>
             <option value="fecha">Fecha</option>
             <option value="monto">Monto</option>
