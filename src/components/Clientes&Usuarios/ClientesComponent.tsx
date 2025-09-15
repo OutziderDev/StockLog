@@ -1,6 +1,7 @@
 import ClientesFiltros from "@/components/Clientes&Usuarios/ClientesFiltros"
 import ClientesTabla from "@/components/Clientes&Usuarios/ClientesTabla"
 import { useEffect, useState } from "preact/hooks"
+import { getClientes } from "@/services/clientesServices"
 import type { JSX } from "preact/jsx-runtime"
 
 export default function ClientesComponent() {
@@ -8,8 +9,9 @@ export default function ClientesComponent() {
   const [filtroCliente, setFiltroCliente] = useState('')
 
   useEffect( () => {
-    function fetchClientes() {
-      
+    async function fetchClientes() {
+      const lista = await getClientes();
+      setListaClientes(lista)
     }
     fetchClientes()
   }, [])
