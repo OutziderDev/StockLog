@@ -1,7 +1,66 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import AddClientIcon from '@/assets/icons/addclients.svg'
+import AddIcon from '@/assets/icons/add.svg'
+import Layout from '@/layouts/Layout.astro'
 ---
+<Layout >
+  <section class="container">
+    <header class="section-Header">
+      <h1 class="tittle">Panel de Usuarios y Clientes</h1>
+      <div class="btngruop">
+        <button class="" id="addCliente" aria-label="Agregar Clientes"> <AddClientIcon/> Agregar Cliente</button>
+        <button class="" id="addUsuario" aria-label="Agregar Usuario"> <AddIcon/> Agregar Usuario</button>
+      </div>
+    </header>
 
-<Layout>
-  <h1>hola</h1>
+    <div class="gridlayout">
+      <section>
+        <h2>
+          Tabla de Clientes Registrados
+        </h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quis quos ipsa provident magnam dolorum laborum delectus nostrum vitae earum. Reiciendis ullam similique quo vitae soluta tenetur rerum placeat quam.
+        Reiciendis dolores voluptates quisquam sit, illum natus facilis nihil itaque harum qui magnam ipsum unde alias, earum incidunt praesentium eos possimus error. Id explicabo fugit sit perferendis, dignissimos magnam impedit?
+        Id, labore quasi? Praesentium, commodi, sit rerum laudantium itaque consequuntur quas veritatis at quasi ut ad numquam, omnis tempore tempora quae repellat? Optio voluptatem quidem atque debitis possimus, odio quibusdam.</p>
+      </section>
+
+      <section>
+        <h2>Tabla de Usuarios del Sistema</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nostrum maxime dignissimos deleniti tempora exercitationem cum, nihil laboriosam, recusandae quae numquam! Est voluptate a illo, voluptatum sunt exercitationem asperiores at!
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi perspiciatis praesentium saepe nesciunt optio! Esse odit exercitationem eaque temporibus, modi quasi suscipit laborum quos nihil reprehenderit, labore vel quaerat distinctio!
+        </p>
+      </section>
+    </div>
+
+  </section>
 </Layout>
+
+<style>
+  .btngruop {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+
+    button {
+      transition: transform 0.1s ease;
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  .gridlayout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem; 
+
+    & > section {
+      background-color: red;
+      padding: 0.8rem;
+    }
+
+    @media (max-width : 768px){
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
