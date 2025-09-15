@@ -2,6 +2,7 @@
 import AddClientIcon from '@/assets/icons/addclients.svg'
 import AddIcon from '@/assets/icons/add.svg'
 import Layout from '@/layouts/Layout.astro'
+import ClientesComponent from "@/components/Clientes&Usuarios/ClientesComponent"
 ---
 <Layout >
   <section class="container">
@@ -18,9 +19,9 @@ import Layout from '@/layouts/Layout.astro'
         <h2>
           Tabla de Clientes Registrados
         </h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quis quos ipsa provident magnam dolorum laborum delectus nostrum vitae earum. Reiciendis ullam similique quo vitae soluta tenetur rerum placeat quam.
-        Reiciendis dolores voluptates quisquam sit, illum natus facilis nihil itaque harum qui magnam ipsum unde alias, earum incidunt praesentium eos possimus error. Id explicabo fugit sit perferendis, dignissimos magnam impedit?
-        Id, labore quasi? Praesentium, commodi, sit rerum laudantium itaque consequuntur quas veritatis at quasi ut ad numquam, omnis tempore tempora quae repellat? Optio voluptatem quidem atque debitis possimus, odio quibusdam.</p>
+        
+        <ClientesComponent />
+        
       </section>
 
       <section>
@@ -55,8 +56,25 @@ import Layout from '@/layouts/Layout.astro'
     gap: 2rem; 
 
     & > section {
-      background-color: red;
-      padding: 0.8rem;
+      padding: 1.5rem 0.8rem 0.8rem 0.8rem;
+      position: relative;
+      border: thin solid var(--color-naranja-claro);
+      border-radius: 0.3rem;
+
+      & > h2 {
+        text-align: center;
+        position: absolute;
+        text-wrap: nowrap;
+        top: 0;
+        left: 50%;
+        padding-inline: 1rem;
+        transform: translate(-50%, -55%);
+        background-color: var(--color-morado-oscuro);
+
+        @media ( width <= 1024px){
+          font-size: 1rem;
+        }
+      }
     }
 
     @media (max-width : 768px){
