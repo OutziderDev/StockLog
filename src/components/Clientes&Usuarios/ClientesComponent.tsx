@@ -13,7 +13,7 @@ export default function ClientesComponent() {
   return (
     <>
       <ClientesFiltros datoFiltro={filtroCliente} onChangeFiltro={handleClienteFiltro} />
-      <ClientesTabla />
+      <ClientesTabla dataClientes={listaClientes} dataFiltro={filtroCliente} />
     </>
   )
 }
