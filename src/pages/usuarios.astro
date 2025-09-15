@@ -20,7 +20,7 @@ import ClientesComponent from "@/components/Clientes&Usuarios/ClientesComponent"
           Tabla de Clientes Registrados
         </h2>
         
-        <ClientesComponent />
+        <ClientesComponent client:load/>
         
       </section>
 
@@ -73,6 +73,13 @@ import ClientesComponent from "@/components/Clientes&Usuarios/ClientesComponent"
 
         @media ( width <= 1024px){
           font-size: 1rem;
+        }
+      }
+
+      form {
+       & > label {
+          font-size: 1.3rem;
+          margin-right: 0.8rem;
         }
       }
     }
