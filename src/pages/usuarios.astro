@@ -2,7 +2,8 @@
 import AddClientIcon from '@/assets/icons/addclients.svg'
 import AddIcon from '@/assets/icons/add.svg'
 import Layout from '@/layouts/Layout.astro'
-import ClientesComponent from "@/components/Clientes&Usuarios/ClientesComponent"
+import ClientesComponent from "@/components/Clientes&Usuarios/Cliente/ClientesComponent"
+import UsuariosComponent from "@/components/Clientes&Usuarios/Usuarios/UsuariosComponent"
 ---
 <Layout >
   <section class="container">
@@ -20,15 +21,13 @@ import ClientesComponent from "@/components/Clientes&Usuarios/ClientesComponent"
           Tabla de Clientes Registrados
         </h2>
         
-        <ClientesComponent client:load/>
+        <ClientesComponent client:load />
         
       </section>
 
       <section>
         <h2>Tabla de Usuarios del Sistema</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nostrum maxime dignissimos deleniti tempora exercitationem cum, nihil laboriosam, recusandae quae numquam! Est voluptate a illo, voluptatum sunt exercitationem asperiores at!
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi perspiciatis praesentium saepe nesciunt optio! Esse odit exercitationem eaque temporibus, modi quasi suscipit laborum quos nihil reprehenderit, labore vel quaerat distinctio!
-        </p>
+        <UsuariosComponent />
       </section>
     </div>
 

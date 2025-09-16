@@ -1,5 +1,5 @@
-import ClientesFiltros from "@/components/Clientes&Usuarios/ClientesFiltros"
-import ClientesTabla from "@/components/Clientes&Usuarios/ClientesTabla"
+import ClientesFiltros from "@/components/Clientes&Usuarios/Cliente/ClientesFiltros"
+import ClientesTabla from "@/components/Clientes&Usuarios/Cliente/ClientesTabla"
 import { useEffect, useState } from "preact/hooks"
 import { getClientes } from "@/services/clientesServices"
 import type { JSX } from "preact/jsx-runtime"
@@ -19,6 +19,9 @@ export default function ClientesComponent() {
   const handleClienteFiltro = (e : JSX.TargetedEvent<HTMLInputElement, Event>) => {
     setFiltroCliente( e.currentTarget.value)
   }
+
+  if(!listaClientes) return
+  
   return (
     <>
       <ClientesFiltros datoFiltro={filtroCliente} onChangeFiltro={handleClienteFiltro} />

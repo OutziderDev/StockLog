@@ -6,11 +6,11 @@ interface ClientesTablaProps {
 }
 
 export default function ClientesTabla({ dataClientes, dataFiltro }: ClientesTablaProps) {
-  console.log('lista de cliente', dataClientes);
-  console.log('el filtro:', dataFiltro);
+  /* console.log('lista de cliente', dataClientes);
+  console.log('el filtro:', dataFiltro); */
 
   const clienteExacto = dataClientes.filter( cliente => cliente.nombre.toLocaleLowerCase().includes(dataFiltro.toLocaleLowerCase()))
-  console.log('el xliente', clienteExacto);
+  /* console.log('el xliente', clienteExacto); */
   
   return (
     <table className={"tablestyles"}>
