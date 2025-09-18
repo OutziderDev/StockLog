@@ -2,6 +2,7 @@ import UsuariosFiltros from "@/components/Clientes&Usuarios/Usuarios/UsuariosFil
 import UsuariosTabla from "@/components/Clientes&Usuarios//Usuarios/UsuariosTabla"
 import { useEffect, useState } from "preact/hooks"
 import { getUsuarios } from "@/services/usuariosServices"
+import type { JSX } from "preact/jsx-runtime"
 
 const UsuariosComponent = () => {
   const [filtroUsuario, setFiltroUsuario] = useState('')
@@ -15,10 +16,15 @@ const UsuariosComponent = () => {
     fetchUsuarios();
   },[])
 
+  /* Funciones Handle */
+  const handleUserFiltro = (e : JSX.TargetedEvent<HTMLInputElement, Event>) => {
+    setFiltroUsuario( e.currentTarget.value)
+  }
+
   return (
     <>
-      <UsuariosFiltros />
-      <UsuariosTabla dataUsuarios= {listUsuarios} />
+      <UsuariosFiltros dataFiltro={filtroUsuario} handleFiltro={handleUserFiltro} />
+      <UsuariosTabla dataUsuarios= {listUsuarios} dataFiltro={filtroUsuario} />
     </>
   )
 }

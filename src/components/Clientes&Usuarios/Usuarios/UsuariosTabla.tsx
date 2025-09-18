@@ -2,9 +2,12 @@ import type { Usuario } from "@/types/usuariosTypes"
 
 interface UsuarioTablaProps {
   dataUsuarios: Usuario[],
+  dataFiltro: string
 }
-const UsuariosTabla = ({dataUsuarios}: UsuarioTablaProps) => {
-  console.log('data user:',dataUsuarios);
+const UsuariosTabla = ({dataUsuarios,dataFiltro }: UsuarioTablaProps) => {
+  /* console.log('data user:',dataUsuarios); */
+  /* console.log("datos filtro en tabla: ", dataFiltro); */
+  
   const usuarioExacto = dataUsuarios
   
   return(
