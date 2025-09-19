@@ -5,10 +5,7 @@ interface UsuarioTablaProps {
   dataFiltro: string
 }
 const UsuariosTabla = ({dataUsuarios,dataFiltro }: UsuarioTablaProps) => {
-  /* console.log('data user:',dataUsuarios); */
-  /* console.log("datos filtro en tabla: ", dataFiltro); */
-  
-  const usuarioExacto = dataUsuarios
+  const usuarioExacto = dataUsuarios.filter( user =>  user.nombre.toLocaleLowerCase().includes(dataFiltro.toLocaleLowerCase()))
   
   return(
     <table className={"tablestyles"}>
