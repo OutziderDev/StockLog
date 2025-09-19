@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { supabase } from "@/scripts/supabaseClient";
+/* export const prerender = false;  (para que solo el endpoint sea SSR)*/
 
 export const GET : APIRoute = async () => {
   try {
@@ -23,6 +24,7 @@ export const GET : APIRoute = async () => {
 export const POST : APIRoute = async ({ request }) => {
   try {
     const { nombre, email, direccion } = await request.json()
+    console.log('el nombre:', nombre);
     
     if (!nombre || !email || !direccion ) {
       return new Response( JSON.stringify({error: "Faltan campos obligatorios"}) ,{status:400})
@@ -31,6 +33,7 @@ export const POST : APIRoute = async ({ request }) => {
     const { data, error } = await supabase
     .from('clientes')
     .insert({ nombre, email,direccion })
+    .select() /* para devolver el fichero ingresado */
   
     if(error){
       return new Response( JSON.stringify({error: error.message}), {status:500})

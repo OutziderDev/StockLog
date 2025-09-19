@@ -30,7 +30,7 @@ export default function ClientesTabla({ dataClientes, dataFiltro }: ClientesTabl
               <tr>
                 <td>{cliente.id}</td>
                 <td>{cliente.nombre}</td>
-                <td>{cliente.dirección}</td>
+                <td>{cliente.direccion}</td>
                 <td>view</td>
               </tr>
             ))
