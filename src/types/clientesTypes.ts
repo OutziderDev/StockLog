@@ -1,7 +1,7 @@
 export interface Cliente {
-  id: number,
+  id?: number,
   nombre: string,
   email: string,
   direccion: string,
-  create_at: Date,
+  create_at?: Date,
 }
