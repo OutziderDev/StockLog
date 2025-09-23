@@ -1,8 +1,8 @@
 import "@/components/Clientes&Usuarios/Cliente/stylesclientes.css"
 import { crearCliente } from "@/services/clientesServices"
-import { useState } from "preact/hooks"
 import type { Cliente } from "@/types/clientesTypes"
 import type { JSX } from "preact/jsx-runtime"
+import { useState } from "preact/hooks"
 
 export default function PopoverAddCliente () {
   const [formData, setFormData] = useState<Cliente>({nombre: '', email: '', direccion: ''})
