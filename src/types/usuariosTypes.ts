@@ -1,6 +1,6 @@
 export interface Usuario {
-  id: number,
+  id?: number,
   nombre: string,
   user: string,
-  created_at: Date
+  created_at?: Date
 }
