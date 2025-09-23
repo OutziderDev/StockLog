@@ -73,7 +73,7 @@ import PopoverAddCliente from '@/components/Clientes&Usuarios/Cliente/PopoverAdd
         transform: translate(-50%, -55%);
         background-color: var(--color-morado-oscuro);
 
-        @media ( width <= 1024px){
+        @media ( max-width: 1024px){
           font-size: 1rem;
         }
       }
@@ -109,3 +109,14 @@ import PopoverAddCliente from '@/components/Clientes&Usuarios/Cliente/PopoverAdd
   }
 
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btnPopoverAddUsuarios = document.querySelector("#addUsuario") 
+    const popoverUsuarios = document.querySelector('#addUsuarioPopover') as HTMLElement
+
+    btnPopoverAddUsuarios?.addEventListener('click', () => {
+      popoverUsuarios?.showPopover();
+    })
+  })  
+</script>
