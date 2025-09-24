@@ -1,9 +1,12 @@
-import { useState } from "preact/hooks"
+import "@/components/Clientes&Usuarios/Usuarios/stylesusuarios.css"
 import type { JSX } from "preact/jsx-runtime"
+import { useState } from "preact/hooks"
 
 export default function PopoverAddUsuario ({}) {
   /* Estados */
   const [formUserData, setFormUserData] = useState({nombre: '', user: ''})
+  console.log('form', formUserData);
+  
 
   /* Funciones Handles */
   const handleInput = (e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
@@ -20,7 +23,7 @@ export default function PopoverAddUsuario ({}) {
         <header>
           <h2>Agregar Usuario</h2>
         </header>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id={"formAddUsuarioPopover"}>
           <label > 
           Nombre:
           <input type="text" name="nombre" id="nombre" className="inputbase" required onChange={handleInput}/>
