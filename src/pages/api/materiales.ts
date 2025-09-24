@@ -24,3 +24,27 @@ export const GET: APIRoute = async () => {
   }
 
 };
+
+export const POST : APIRoute = async ({ request }) => {
+  try {
+    const { nombre, cantidad, precio, categoria, unidad } = await request.json()
+    
+    if (!nombre || !cantidad || !precio || !categoria || !unidad ) {
+      return new Response( JSON.stringify({error: "Faltan campos obligatorios"}) ,{status:400})
+    }
+
+    const { data, error } = await supabase
+    .from('materiales')
+    .insert({ nombre, cantidad,precio, categoria, unidad })
+    .select() /* para devolver el fichero ingresado */
+  
+    if(error){
+      return new Response( JSON.stringify({error: error.message}), {status:500})
+    }
+
+    return new Response( JSON.stringify(data), {status:201, headers: {"Content-type": "application/json"}})
+    
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Fallo en la petición"}), {status: 500})
+  }
+}

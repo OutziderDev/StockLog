@@ -1,3 +1,4 @@
+import type { Material } from "@/types/materialesTypes";
 import { baseURL } from "./utility";
 
 export const getMateriales = async () => {
@@ -5,11 +6,11 @@ export const getMateriales = async () => {
   return res.json();
 }
 
-export async function addMaterial(material: { nombre: string; cantidad: number }) {
-  const res = await fetch("/api/materiales", {
+export async function agregarMaterial(nuevoMaterial : Material) {
+  const res = await fetch(`${baseURL}/materiales`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(material),
+    body: JSON.stringify(nuevoMaterial),
   });
   return res.json();
 }

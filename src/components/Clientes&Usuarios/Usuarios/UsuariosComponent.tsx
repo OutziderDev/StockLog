@@ -10,7 +10,7 @@ const UsuariosComponent = () => {
   const [listUsuarios, setListUsuarios] = useState([])
 
   useEffect( () => {
-    async function fetchUsuarios(){
+    async function fetchUsuarios() {
       const result = await getUsuarios()
       setListUsuarios(result)
     }
