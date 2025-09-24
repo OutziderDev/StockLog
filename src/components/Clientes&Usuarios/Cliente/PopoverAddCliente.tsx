@@ -7,14 +7,11 @@ import { useState } from "preact/hooks"
 export default function PopoverAddCliente () {
   const [formData, setFormData] = useState<Cliente>({nombre: '', email: '', direccion: ''})
 
-  console.log("form data: ", formData);
-
   const handleInput = (e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
     setFormData({...formData, [e.currentTarget.name]: e.currentTarget.value})
   }
 
   const handleSubmit = async (e : JSX.TargetedEvent<HTMLFormElement, Event>) => {
-    /* e.preventDefault(); */
     await crearCliente(formData);
     (document.querySelector('#addClientePopover') as HTMLElement).hidePopover();
   }

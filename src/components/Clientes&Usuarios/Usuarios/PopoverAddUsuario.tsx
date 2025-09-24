@@ -1,21 +1,19 @@
 import "@/components/Clientes&Usuarios/Usuarios/stylesusuarios.css"
+import { crearUsuario } from "@/services/usuariosServices"
 import type { JSX } from "preact/jsx-runtime"
 import { useState } from "preact/hooks"
 
 export default function PopoverAddUsuario ({}) {
   /* Estados */
   const [formUserData, setFormUserData] = useState({nombre: '', user: ''})
-  console.log('form', formUserData);
-  
 
   /* Funciones Handles */
   const handleInput = (e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
     setFormUserData({...formUserData, [e.currentTarget.name]: e.currentTarget.value})
   }
 
-  const handleSubmit = () => {
-    return ( console.log('hola')
-    )
+  const handleSubmit = async (e : JSX.TargetedEvent<HTMLFormElement, Event>) => {
+    await crearUsuario(formUserData)
   }
 
   return (
